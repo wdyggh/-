@@ -50,3 +50,19 @@ color.diff=auto
 ```bash
 $ git config user.name
 ```
+
+####获取帮助
+
+有三种方法：
+
+```bash
+$ git help <verb>
+$ git <verb> --help
+$ man git-<verb>
+```
+
+比如想知道config命令怎样使用：
+
+```bash
+$ git help config
+```
