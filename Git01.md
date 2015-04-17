@@ -98,3 +98,5 @@ $ man git-<verb>
 ```bash
 $ git help config
 ```
+
+[下一篇](Git02.md)
