@@ -166,4 +166,110 @@ doc/*.txt # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
 ####经验 `gitignore只适用于尚未添加到git库的文件。如果已经添加了，则需用git rm移除后再重新commit`
 
 
+####提交更新
+
+现在的暂存区域已经准备妥当可以提交了。在此之前，请一定要确认还有什么修改过的或新建的文件还没有 git add 过，否则提交的时候不会记录这些还没暂存起来的变化。所以，每次准备提交前，先用 git status 看下，是不是都已暂存起来了，然后再运行提交命令 `git commit`
+
+```bash
+$ git commit
+```
+
+添加提交描述:
+
+```bash
+$ git commit -m "update info"
+```
+
+####跳过使用暂存区域
+
+尽管使用暂存区域的方式可以精心准备要提交的细节，但有时候这么做略显繁琐。Git 提供了一个跳过使用暂存区域的方式，只要在提交的时候，给 `git commit` 加上 `-a` 选项，Git 就会自动把所有已经跟踪过的文件暂存起来一并提交，从而跳过 `git add` 步骤:
+
+```bash
+$ git status
+# On branch master
+#
+# Changes not staged for commit:
+#
+#   modified:   benchmarks.rb
+#
+$ git commit -a -m 'added new benchmarks'
+[master 83e38c7] added new benchmarks
+ 1 files changed, 5 insertions(+), 0 deletions(-)
+```
+
+提交之前不再需要 `git add` 文件
+
+####移除文件
+
+要从 Git 中移除某个文件，就必须要从已跟踪文件清单中移除（`确切地说，是从暂存区域移除`），然后提交。可以用 `git rm` 命令完成此项工作，并连带从工作目录中删除指定的文件，这样以后就不会出现在未跟踪文件清单中了。
+
+如果只是简单地从工作目录中手工删除文件，运行 `git status` 时就会在 “Changes not staged for commit” 部分（也就是未暂存清单）看到:
+
+```bash
+$ rm grit.gemspec
+$ git status
+# On branch master
+#
+# Changes not staged for commit:
+#   (use "git add/rm <file>..." to update what will be committed)
+#
+#       deleted:    grit.gemspec
+#
+```
+
+然后再运行 `git rm` 记录此次移除文件的操作:
+
+```bash
+$ git rm grit.gemspec
+rm 'grit.gemspec'
+$ git status
+# On branch master
+#
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#       deleted:    grit.gemspec
+#
+```
+如果删除之前修改过并且已经放到暂存区域的话，则必须要用强制删除选项 `-f`（译注：即 force 的首字母），以防误删除文件后丢失修改的内容。
+
+####移动文件
+
+当你看到 Git 的 mv 命令时一定会困惑不已。要在 Git 中对文件改名，可以这么做:
+
+```bash
+$ git mv file_old file_new
+```
+
+操作后 会看到关于重命名的操作说明：
+
+```bash
+$ git mv README.txt README
+$ git status
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#       renamed:    README.txt -> README
+#
+```
+
+当执行`git mv`时 相当于运行了一下3条命令：
+
+```bash
+$ mv README.txt README
+$ git rm README.txt
+$ git add README
+```
+
+
+
+
+
+
+
+
+
 [返回目录](https://github.com/wdyggh/note)
