@@ -23,6 +23,8 @@ $ git commit -m 'initial project verson'
 
 ####从现有仓库克隆
 
+- - -
+
 如果想对某个开源项目出一份力，可以先把该项目的 Git 仓库复制一份出来，这就需要用到 git clone 命令。
 克隆仓库的命令格式为 *git clone [url]*
 
@@ -66,6 +68,8 @@ nothing to commit (working directory clean)
 
 #### 跟踪新文件
 
+- - -
+
 使用命令`git add`开始跟踪一个新文件：
 
 ```bash
@@ -88,6 +92,8 @@ $ git status
 
 
 ####暂存已修改文件
+
+- - -
 
 现在我们修改下之前已跟踪过的文件 `benchmarks.rb` ，然后再次运行 `git status` 命令，会看到这样的状态报告:
 
@@ -122,7 +128,10 @@ $ git status
 
 如果想再添加注释，就必须重新使用 `git add `,不然只提交 添加注释之前的内容。
 
-#### **忽略某些文件**
+#### *忽略某些文件*
+
+- - -
+
 
 
 
