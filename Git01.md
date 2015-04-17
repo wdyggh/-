@@ -28,7 +28,7 @@ sudo port install git-core +svn +doc +bash_completion +gitweb
 [install](http://code.google.com/p/msysgit)
 
 
-## Git 初次使用配置
+### Git 初次使用配置
 
 - - - 
 
