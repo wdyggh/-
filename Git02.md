@@ -163,7 +163,7 @@ build/    # 忽略 build/ 目录下的所有文件
 doc/*.txt # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
 ```
 
-
+####经验 `gitignore只适用于尚未添加到git库的文件。如果已经添加了，则需用git rm移除后再重新commit`
 
 
 [返回目录](https://github.com/wdyggh/note)
