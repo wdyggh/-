@@ -1,4 +1,5 @@
-##Git 安装
+###Git 安装
+- - -
 
 ####Linux
 
@@ -28,6 +29,8 @@ sudo port install git-core +svn +doc +bash_completion +gitweb
 
 
 ## Git 初次使用配置
+
+- - - 
 
 ####用户信息
 
