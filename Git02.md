@@ -23,7 +23,7 @@ $ git commit -m 'initial project verson'
 ####从现有仓库克隆
 
 如果想对某个开源项目出一份力，可以先把该项目的 Git 仓库复制一份出来，这就需要用到 git clone 命令。
-克隆仓库的命令格式为 * git clone [url] *
+克隆仓库的命令格式为 *git clone [url]*
 
 ```bash
 $ git clone git://github.com/schacon/grit.git
