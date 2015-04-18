@@ -214,7 +214,7 @@ $ git push origin master
     master:master
  ```
  
-#### 远程仓库的删除和重命名
+####远程仓库的删除和重命名
 
 - - -
 
