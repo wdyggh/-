@@ -168,9 +168,75 @@ $ git fetch [remote-name]
 
 如果是克隆了一个仓库，此命令会自动将远程仓库归于 origin 名下。所以，git fetch origin 会抓取从你上次克隆以来别人上传到此远程仓库中的所有更新（或是上次 fetch 以来别人提交的更新）。**有一点很重要，需要记住，fetch 命令只是将远端的数据拉到本地仓库，并不自动合并到当前工作分支，只有当你确实准备好了，才能手工合并**。    
 
+####推送数据到远程仓库
 
+- - -
 
+*项目进行到一个阶段，要同别人分享目前的成果，可以将本地仓库中的数据推送到远程仓库*。实现这个任务的命令很简单 `git push [remote-name] [branch-name]`。如果要把本地的 master 分支推送到 origin 服务器上（**再次说明下，克隆操作会自动使用默认的 master 和 origin 名字**），可以运行下面的命令:
 
+```bash
+$ git push origin master
+```
+
+只有在所克隆的服务器上有写权限，或者*同一时刻*没有其他人在推数据，这条命令才会如期完成任务。*如果在你推数据前，已经有其他人推送了若干更新，那你的推送操作就会被驳回*。你必须先把他们的更新抓取到本地，合并到自己的项目中，然后才可以再次推送。
+
+ #### 查看远程仓库信息
+ 
+ - - -
+ 
+ 我们可以通过命令` git remote show [remote-name]` 查看某个远程仓库的详细信息，比如要看所克隆的 origin 仓库，可以运行:
+ 
+ ![Git03_02](http://7xifyp.com1.z0.glb.clouddn.com/Git03_02.png)
+ 
+ 随着使用 Git 的深入，`git remote show` 给出的信息可能会像这样:
+ 
+ ```bash
+ $ git remote show origin
+* remote origin
+  URL: git@github.com:defunkt/github.git
+  Remote branch merged with 'git pull' while on branch issues
+    issues
+  Remote branch merged with 'git pull' while on branch master
+    master
+  New remote branches (next fetch will store in remotes/origin)
+    caching
+  Stale tracking branches (use 'git remote prune')
+    libwalker
+    walker2
+  Tracked remote branches
+    acl
+    apiv2
+    dashboard2
+    issues
+    master
+    postgres
+  Local branch pushed with 'git push'
+    master:master
+ ```
+ 
+#### 远程仓库的删除和重命名
+
+- - -
+
+在新版 Git 中可以用 `git remote rename` 命令修改某个远程仓库在本地的简短名称，比如想把 pb 改成 paul，可以这么运行:
+ 
+```bash
+$ git remote rename pb paul
+$ git remote
+origin
+paul
+```
+
+**注意，对远程仓库的重命名，也会使对应的分支名称发生变化，原来的 pb/master 分支现在成了 paul/master。**
+ 
+碰到远端仓库服务器迁移，或者原来的克隆镜像不再使用，又或者某个参与者不再贡献代码，那么需要移除对应的远端仓库，可以运行 git remote rm 命令:
+
+```bash
+$ git remote rm paul
+$ git remote
+origin
+```
+ 
  
 
 
