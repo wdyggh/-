@@ -119,9 +119,53 @@ $ git status
 
 - - -
 
-用 git remote 命令，它会列出每个远程库的简短名字。在克隆完某个项目后，至少可以看到一个名为 origin 的远程库，Git 默认使用这个名字来标识你所克隆的原始仓库,加上 -v 选项（译注::此为 –verbose 的简写，取首字母），显示对应的克隆地址:
+用 git remote 命令，它会列出每个远程库的简短名字。在克隆完某个项目后，至少可以看到一个名为 origin 的远程库，Git 默认使用这个名字来标识你所克隆的原始仓库     
+加上 -v 选项（译注::此为 –verbose 的简写，取首字母），显示对应的克隆地址:  
 
 ![Git03_01](http://7xifyp.com1.z0.glb.clouddn.com/Git03_01.png)
+
+####添加远程仓库
+
+- - -
+
+添加一个新的远程仓库，可以指定一个简单的名字，以便将来引用，运行 git remote add [shortname] [url]:
+
+```bash
+$ git remote
+origin
+$ git remote add pb git://github.com/paulboone/ticgit.git
+$ git remote -v
+origin  git://github.com/schacon/ticgit.git
+pb  git://github.com/paulboone/ticgit.git
+```
+
+**现在可以用字串 pb 指代对应的仓库地址了**。比如说，要抓取所有 Paul 有的，但本地仓库没有的信息，可以运行 `git fetch pb`:
+
+```bash
+$ git fetch pb
+remote: Counting objects: 58, done.
+remote: Compressing objects: 100% (41/41), done.
+remote: Total 44 (delta 24), reused 1 (delta 0)
+Unpacking objects: 100% (44/44), done.
+From git://github.com/paulboone/ticgit
+ * [new branch]      master     -> pb/master
+ * [new branch]      ticgit     -> pb/ticgit
+ ```
+ 
+现在，Paul 的主干分支（master）已经完全可以在本地访问了，对应的名字是 pb/master，你可以将它合并到自己的某个分支，或者切换到这个分支，看看有些什么有趣的更新
+ 
+####从远程仓库抓取数据
+
+- - - 
+
+可以用下面的命令从远程仓库抓取数据到本地:
+
+```bash
+$ git fetch [remote-name]
+```
+
+此命令会到远程仓库中拉取所有你本地仓库中还没有的数据。运行完成后，你就可以在本地访问该远程仓库中的所有分支，将其中某个分支合并到本地，或者只是取出某个分支，一探究竟。   
+如果是克隆了一个仓库，此命令会自动将远程仓库归于 origin 名下。所以，git fetch origin 会抓取从你上次克隆以来别人上传到此远程仓库中的所有更新（或是上次 fetch 以来别人提交的更新）。**有一点很重要，需要记住，fetch 命令只是将远端的数据拉到本地仓库，并不自动合并到当前工作分支，只有当你确实准备好了，才能手工合并**。    
 
 
 
