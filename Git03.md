@@ -119,6 +119,8 @@ $ git status
 
 - - -
 
+用 git remote 命令，它会列出每个远程库的简短名字。在克隆完某个项目后，至少可以看到一个名为 origin 的远程库，Git 默认使用这个名字来标识你所克隆的原始仓库,加上 -v 选项（译注::此为 –verbose 的简写，取首字母），显示对应的克隆地址:
+
 ![Git03_01](http://7xifyp.com1.z0.glb.clouddn.com/Git03_01.png)
 
 
