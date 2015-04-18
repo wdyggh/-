@@ -113,6 +113,13 @@ $ git status
 
 这样就能会到之前的状态 就是修改之前的版本。
 
+###远程仓库的使用
+
+####查看当前的远程库
+
+- - -
+
+![Git03_01](http://7xifyp.com1.z0.glb.clouddn.com/Git03_01.png)
 
 
 
