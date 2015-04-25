@@ -54,6 +54,34 @@ $ git branch testing
 
 ![HEAD 指向当前所在的分支](http://docs.pythontab.com/github/gitbook/_images/18333fig0305-tn.png)
 
+要切换到其他分支，可以执行 `git checkout` 命令。我们现在转换到新建的 testing 分支:
+
+```bash
+$ git checkout testing  #这样就能切换到 testing 分支
+```
+
+这样 HEAD 就指向了 testing 分支
+
+![HEAD 在你转换分支时指向新的分支](http://docs.pythontab.com/github/gitbook/_images/18333fig0306-tn.png)
+
+这样的实现方式会给我们带来什么好处呢？好吧，现在不妨再提交一次:
+
+```bash
+$ vim test.rb
+$ git commit -a -m 'made a change'
+```
+
+下图展示了提交后的结果。
+
+![每次提交后 HEAD 随着分支一起向前移动](http://docs.pythontab.com/github/gitbook/_images/18333fig0307-tn.png)
+
+
+
+
+
+
+
+
 
 
 
