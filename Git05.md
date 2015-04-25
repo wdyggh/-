@@ -40,7 +40,7 @@ $ git commit -m 'initial commit of my project'
 
 ![ 分支其实就是从某个提交对象往回看的历史](http://docs.pythontab.com/github/gitbook/_images/18333fig0303-tn.png)
 
-那么，Git 又是如何创建一个新的分支的呢？答案很简单，创建一个新的分支指针。比如新建一个 testing 分支，可以使用 git branch 命令:
+那么，Git 又是如何创建一个新的分支的呢？答案很简单，创建一个新的分支指针。比如新建一个 testing 分支，可以使用 `git branch` 命令:
 
 ```bash
 $ git branch testing
@@ -50,7 +50,9 @@ $ git branch testing
 
 ![多个分支指向提交数据的历史](http://docs.pythontab.com/github/gitbook/_images/18333fig0304-tn.png)
 
+那么，Git 是如何知道你当前在哪个分支上工作的呢？其实答案也很简单，它保存着一个名为 `HEAD` 的特别指针。请注意它和你熟知的许多其他版本控制系统（比如 Subversion 或 CVS）里的 HEAD 概念大不相同。在 Git 中，**它是一个指向你正在工作中的本地分支的指针（译注：将 HEAD 想象为当前分支的别名）**。运行 `git branch` 命令，**仅仅是建立了一个新的分支，但不会自动切换到这个分支中去，所以在这个例子中，我们依然还在 master 分支里工作。**
 
+![HEAD 指向当前所在的分支](http://docs.pythontab.com/github/gitbook/_images/18333fig0305-tn.png)
 
 
 
