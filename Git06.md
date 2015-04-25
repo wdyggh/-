@@ -35,7 +35,7 @@ $ git branch iss53    #新建分支
 $ git checkout iss53  #转到分支
 ```
 
-命令的执行结果
+命令的执行结果:
 
 ![创建了一个新分支的指针](http://docs.pythontab.com/github/gitbook/_images/18333fig0311-tn.png)
 
