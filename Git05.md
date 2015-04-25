@@ -75,9 +75,20 @@ $ git commit -a -m 'made a change'
 
 ![每次提交后 HEAD 随着分支一起向前移动](http://docs.pythontab.com/github/gitbook/_images/18333fig0307-tn.png)
 
+现在 testing 分支向前移动了一格，而 master 分支仍然指向原先 `git checkout` 时所在的 commit 对象。现在我们回到 master 分支看看:
 
+```bash
+$ git checkout master
+```
 
+这条命令做了两件事。它把     
 
+> 1. HEAD 指针移回到 master 分支     
+> 2. 把工作目录中的文件换成了 master分支所指向的快照内容  
+
+也就是说，现在开始所做的改动，将始于本项目中一个较老的版本。它的主要作用是将 testing 分支里作出的修改暂时取消，这样你就可以向另一个方向进行开发。
+
+![HEAD 在一次 checkout 之后移动到了另一个分支](http://docs.pythontab.com/github/gitbook/_images/18333fig0308-tn.png)
 
 
 
