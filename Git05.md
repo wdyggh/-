@@ -26,19 +26,29 @@ $ git commit -m 'initial commit of my project'
 
 
 下图中  
-绿色框内 记录着目录树内容及其中各个文件对应 blob 对象索引的 tree 对象。
-紫色框内 指向 tree 对象（根目录）的索引和其他提交信息元数据的 commit 对象。
-红色框内 三个表示文件快照内容的 blob 对象。
+绿色框内 记录着目录树内容及其中各个文件对应 blob 对象索引的 tree 对象。    
+紫色框内 指向 tree 对象（根目录）的索引和其他提交信息元数据的 commit 对象。     
+红色框内 三个表示文件快照内容的 blob 对象。    
 
-![单个提交对象在仓库中的数据结构](http://docs.pythontab.com/github/gitbook/_images/18333fig0301-tn.png)
+![单个提交对象在仓库中的数据结构](http://docs.pythontab.com/github/gitbook/_images/18333fig0301-tn.png)     
 
+作些修改后再次提交，那么这次的提交对象会包含一个指向上次提交对象的指针（译注：即下图中的 parent 对象）。两次提交后，仓库历史会变成下图的样子:
 
+![多个提交对象之间的链接关系](http://docs.pythontab.com/github/gitbook/_images/18333fig0302-tn.png)
 
+现在来谈分支。Git 中的分支，其实**本质上仅仅是个指向 commit 对象的可变指针。**Git 会使用 **master** 作为分支的默认名字。在若干次提交后，你其实已经有了一个指向最后一次提交对象的 master 分支，它在每次提交的时候都会自动向前移动。
 
+![ 分支其实就是从某个提交对象往回看的历史](http://docs.pythontab.com/github/gitbook/_images/18333fig0303-tn.png)
 
+那么，Git 又是如何创建一个新的分支的呢？答案很简单，创建一个新的分支指针。比如新建一个 testing 分支，可以使用 git branch 命令:
 
+```bash
+$ git branch testing
+```
 
+这会在当前 commit 对象上新建一个分支指针。如下图：
 
+![多个分支指向提交数据的历史](http://docs.pythontab.com/github/gitbook/_images/18333fig0304-tn.png)
 
 
 
