@@ -70,7 +70,7 @@ $ git commit -a -m 'fixed the broken email address'
  1 files changed, 0 insertions(+), 1 deletions(-)
 ```
 
-hotfix 分支是从 master 分支所在点分化出来的
+hotfix 分支是从 master 分支所在点分化出来的   
 ![hotfix 分支是从 master 分支所在点分化出来的](http://docs.pythontab.com/github/gitbook/_images/18333fig0313-tn.png)
 
 
