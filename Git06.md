@@ -121,9 +121,11 @@ Merge made by recursive.
  README |    1 +
  1 files changed, 1 insertions(+), 0 deletions(-)
 ```
+请注意，这次合并操作的底层实现，并不同于之前 hotfix 的并入方式。因为这次你的开发历史是从更早的地方开始分叉的。由于当前 master 分支所指向的提交对象（C4）并不是 iss53 分支的直接祖先，Git 不得不进行一些额外处理。就此例而言，Git 会用两个分支的末端（C4 和 C5）以及它们的共同祖先（C2）进行一次简单的三方合并计算用红框标出了 Git 用于合并的三个提交对象:
+
 Git 为分支合并自动识别出最佳的同源合并点
 
-![Git 为分支合并自动识别出最佳的同源合并点](http://docs.pythontab.com/github/gitbook/_images/18333fig0316-tn.png)
+![Git 为分支合并自动识别出最佳的同源合并点](http://git-scm.com/figures/18333fig0316-tn.png)
 
 
 
