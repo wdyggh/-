@@ -186,6 +186,14 @@ index.html: needs merge
 >>>>>>> iss53:index.html
 ```
 
+可以看到======= 隔开的**上半部分，是 HEAD（即 master 分支，在运行 merge 命令时所切换到的分支）中的内容，下半部分是在 iss53 分支中的内容**。解决冲突的办法无非是**二者选其一或者由你亲自整合到一起**。比如你可以通过把这段内容替换为下面这样来解决:
+
+```html
+<div id="footer">
+ please contact us at email.support@github.com
+</div>
+```
+
 
 
 
