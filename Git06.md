@@ -13,18 +13,18 @@
 3. 通过测试后，回到生产服务器所在的分支，将修补分支合并进来，然后推送到生产服务器上
 4. 切换到之前时迁新需求的分支，继续工作
 
-- - - 
+===
 
 回头写在开头的小结：    
 
-*大概会用到的命令：
-> $ git checkout -b iss53  #新建iss53分支 -b转到iss53分支
-> $ git checkout master    #转到master分支
-> $ git merge hotfix       #在当前分支下，把hotfix分支合并进来
-> $ git branch -d hotfix   #删除hotfix分支
+* 大概会用到的命令：
+> $ git checkout -b iss53  #新建iss53分支 -b转到iss53分支    
+> $ git checkout master    #转到master分支    
+> $ git merge hotfix       #在当前分支下，把hotfix分支合并进来     
+> $ git branch -d hotfix   #删除hotfix分支     
 
 
-- - -
+===
 
 #### 分支的新建与切换
 
