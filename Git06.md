@@ -84,7 +84,7 @@ Fast forward
  1 files changed, 0 insertions(+), 1 deletions(-)
 ```
 
-* ##### master \> hotfix 
+*##### master \> hotfix 
 
 请注意，合并时出现了“Fast forward”的提示。由于当前 master 分支所在的提交对象是要并入的 hotfix 分支的直接上游，**Git 只需把 master 分支指针直接右移**。换句话说，如果顺着一个分支走下去可以到达另一个分支的话，那么 Git 在合并两者时，**只会简单地把指针右移，因为这种单线的历史分支不存在任何需要解决的分歧**，所以这种合并过程可以称为**快进（Fast forward）。**    
 现在最新的修改已经在当前 master 分支所指向的提交对象中了，可以部署到生产服务器上去了。
