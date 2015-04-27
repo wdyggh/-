@@ -17,6 +17,12 @@
 
 回头写在开头的小结：    
 
+>adwa
+
+
+
+
+
 * 大概会用到的命令：    
 >$ git checkout -b iss53  #新建iss53分支 -b转到iss53分支    
 >$ git checkout master    #转到master分支    
