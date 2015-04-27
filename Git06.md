@@ -112,6 +112,8 @@ $ git commit -a -m 'finished the new footer[issue53]'
 
 ####分支的合并
 
+- - -
+
 在问题 #53 相关的工作完成之后，可以合并回 master 分支。实际操作同前面合并 hotfix 分支差不多，只需回到 master 分支，运行 git merge 命令指定要合并进来的分支:
 
 ```bash
@@ -130,6 +132,65 @@ Merge made by recursive.
 Git 为分支合并自动识别出最佳的同源合并点
 
 ![Git 为分支合并自动识别出最佳的同源合并点](http://git-scm.com/figures/18333fig0316-tn.png)
+
+- - -
+
+这次，Git 没有简单地把分支指针右移，而是对三方合并后的结果重新做一个新的快照，并自动创建一个指向它的提交对象（C6）（见图 3-17）。这个提交对象比较特殊，它有两个祖先（C4 和 C5）。
+
+值得一提的是 Git 可以自己裁决哪个共同祖先才是最佳合并基础；这和 CVS 或 Subversion（1.5 以后的版本）不同，它们需要开发者手工指定合并基础。所以此特性让 Git 的合并操作比其他系统都要简单不少。
+
+Git 自动创建了一个包含了合并结果的提交对象
+
+![Git 自动创建了一个包含了合并结果的提交对象](http://docs.pythontab.com/github/gitbook/_images/18333fig0317-tn.png)
+
+既然之前的工作成果已经合并到 master 了，那么 iss53 也就没用了。你可以就此删除它，并在问题追踪系统里关闭该问题。
+
+```bash
+$ git branch -d iss53   #删除iss53分支
+```
+
+####遇到冲突时的分支合并
+
+有时候合并操作并不会如此顺利。如果在**不同的分支中都修改了同一个文件的同一部分**，Git 就无法干净地把两者合到一起（译注::逻辑上说，这种问题只能**由人来裁决**。）。如果你在解决问题 #53 的过程中修改了 hotfix 中修改的部分，将得到类似下面的结果:
+
+```bash
+$ git merge iss53
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+Git 作了合并，但没有提交，它会停下来等你解决冲突。要看看哪些文件在合并时发生冲突，可以用 `git status` 查阅:
+
+``` bash
+[master*]$ git status
+index.html: needs merge
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#   unmerged:   index.html   #未解决冲突的文件都会以未合并（unmerged）的状态列出
+#
+```
+
+任何包含未解决冲突的文件都会以未合并（unmerged）的状态列出。Git 会在有冲突的文件里加入标准的冲突解决标记，可以通过它们来手工定位并解决这些冲突。可以看到此文件包含类似下面这样的部分:
+
+```html
+<<<<<<< HEAD:index.html
+<div id="footer">contact : email.support@github.com</div>
+=======
+<div id="footer">
+  please contact us at support@github.com
+</div>
+>>>>>>> iss53:index.html
+```
+
+
+
+
+
+
 
 
 
