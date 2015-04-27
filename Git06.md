@@ -194,17 +194,49 @@ index.html: needs merge
 </div>
 ```
 
+这个解决方案各采纳了两个分支中的一部分内容，而且我还删除了 <<<<<<<，======= 和 >>>>>>> 这些行。在解决了所有文件里的所有冲突后，运行 `git add` 将把它们标记为已解决状态（译注::实际上就是来一次快照保存到暂存区域。）。因为一旦暂存，就表示冲突已经解决。如果你想用一个有图形界面的工具来解决这些问题，不妨运行 `git mergetool`，它会调用一个可视化的合并工具并引导你解决所有冲突:
 
+```bash
+$ git mergetool
+merge tool candidates: kdiff3 tkdiff xxdiff meld gvimdiff opendiff emerge vimdiff
+Merging the files: index.html
 
+Normal merge conflict for 'index.html':
+  {local}: modified
+  {remote}: modified
+Hit return to start merge resolution tool (opendiff):
+```
 
+如果不想用**默认的合并工具**（Git 为我默认选择了 *opendiff*，因为我在 Mac 上运行了该命令），你可以在上方”merge tool candidates”里找到可用的合并工具列表，输入你想用的工具名。我们将在第七章讨论怎样改变环境中的默认值。
 
+退出合并工具以后，Git 会询问你合并是否成功。如果回答是，它会为你把相关文件暂存起来，以表明状态为已解决。  
 
+再运行一次 git status 来确认所有冲突都已解决:   
 
+```bash
+$ git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#   modified:   index.html
+#
+```
 
+如果觉得满意了，并且确认所有冲突都已解决，也就是进入了暂存区，就可以用 git commit 来完成这次合并提交。提交的记录差不多是这样:
 
+```bash
+Merge branch 'iss53'
 
-
-
+Conflicts:
+  index.html
+#
+# It looks like you may be committing a MERGE.
+# If this is not correct, please remove the file
+# .git/MERGE_HEAD
+# and try again.
+#
+```
 
 
 
