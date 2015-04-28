@@ -31,6 +31,11 @@ $ git branch -v
 
 
 
+`git branch --merged` *查看已经与当前分支合并的分支*     
+`git branch --no-merged` *查看尚未合并的分支*      
+`git branch -d testing` *删除testing分支 *
+`git branch -D testing` *强制删除testing分支 *
+
 
 
 [返回目录](https://github.com/wdyggh/note)
