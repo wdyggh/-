@@ -18,6 +18,8 @@ $ git branch
 
 ![git branch](http://7xifyp.com1.z0.glb.clouddn.com/gitbranch.jpg)
 
+ = = =
+
 若要查看各个分支最后一个提交对象的信息，可以尝试一下 `git branch -v`:    
 
 ```bash
@@ -29,7 +31,7 @@ $ git branch -v
 
 ![git branch -v](http://7xifyp.com1.z0.glb.clouddn.com/gitbranch-v.jpg)
 
-
+= = =
 
 `git branch --merged` *查看已经与当前分支合并的分支*     
 `git branch --no-merged` *查看尚未合并的分支*      
